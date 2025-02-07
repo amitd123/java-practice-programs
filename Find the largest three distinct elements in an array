@@ -1,0 +1,28 @@
+// Online Java Compiler
+// Find the largest three distinct elements in an array
+// Given an array with all distinct elements, find the largest three elements.
+
+class largestElement {
+    public static void main(String[] args) {
+       int[] inputArray = {10,20,34,9,78,100,43,90};
+       printThreeLargestElement(inputArray);
+    }
+    
+    static void printThreeLargestElement(int[] inputArray){
+        int firstElement = inputArray[0], secondElement = 0, thirdElement = 0;
+        for(int i = 1; i < inputArray.length;i++) {
+            if(inputArray[i] > firstElement) {
+                thirdElement = secondElement;
+                secondElement = firstElement;
+                firstElement = inputArray[i];
+            }else if (inputArray[i] > secondElement){
+                 thirdElement = secondElement;
+                secondElement = inputArray[i];
+            }else if (inputArray[i] > thirdElement){
+                thirdElement = inputArray[i];
+            }
+        }
+        
+        System.out.println("three largest elemets are: first element " + firstElement + " second element "+ secondElement +" third element "+ thirdElement);
+    }
+}
