@@ -1,0 +1,34 @@
+// Online Java Compiler
+// Java implementation of iterative Binary Search
+
+class BinarySearch {
+    public static void main(String[] args) {
+      int inputArr[] = {10,20,23,34,56,80};
+      int inputElement  = 34;
+      
+      int outputIndex = binarySearch(inputArr,inputElement);
+      if(outputIndex == -1){
+          System.out.println(" element is not in input array");
+      }else{
+           System.out.println(" element is at "+outputIndex +" position in an array");
+      }
+    }
+    
+    public static int binarySearch(int arr[], int inputElement) {
+        int low = 0,  high = arr.length - 1;
+        int mid = 0;
+        while(low <= high){
+            mid = low + (high - low) / 2;
+            if(arr[mid] == inputElement){
+                return mid;
+            }
+            
+            if(arr[mid] < inputElement){
+                low = mid;
+            }else{
+                high = mid - 1;
+            }
+        }
+        return -1;
+    }
+}
